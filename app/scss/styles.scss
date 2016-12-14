@@ -1,0 +1,15 @@
+$header-font: Helvetica, sans-serif;
+$para-font: Times, serif;
+
+$header-color: #ff0000;
+$para-color: #0000ff;
+
+h1 {
+  font-family: $header-font;
+  color: $header-color;
+}
+
+p {
+  font-family: $para-font;
+  color: $para-color;
+}
