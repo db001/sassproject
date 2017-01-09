@@ -1,10 +1,18 @@
 module.exports = function(grunt) {
   grunt.initConfig({
+
     watch: {
       sass: {
         files: "app/scss/*.scss",
         tasks: ['sass']
       }
+    },
+
+    eslint: {
+      options: {
+        configFile: 'eslint.json'
+      },
+      target: ['app/**/*.js']
     },
 
     sass: {
@@ -38,7 +46,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
-  grunt.registerTask('default', ['sass', 'browserSync', 'watch']);
+  grunt.loadNpmTasks('grunt-eslint');
+  grunt.registerTask('default', ['eslint', 'sass', 'browserSync', 'watch']);
 
 };
 
