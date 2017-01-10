@@ -5,7 +5,14 @@ module.exports = function(grunt) {
       sass: {
         files: "app/scss/*.scss",
         tasks: ['sass']
-      }
+      },
+      scripts: {
+        files: ['app/**/*.js'],
+        tasks: ['eslint'],
+        options: {
+          spawn: false
+        },
+      },
     },
 
     eslint: {
