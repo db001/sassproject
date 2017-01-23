@@ -1,3 +1,5 @@
+// Sample script to check esLint is working
+
 'use strict';
 
 var a = 25;
@@ -8,6 +10,6 @@ function add(x) {
 
 add(a);
 
-var x = document.getElementById('test');
+var x = document.getElementsByClassName('js-test')[0];
 
-x.style.color = "blue";
+x.style.color = "red";
