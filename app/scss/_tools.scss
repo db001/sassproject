@@ -9,4 +9,8 @@
     -o-transition: $trans-params;
     transition: $trans-params;
 }
+
+// Usage:
+@include transition(all 0.25s ease);
+
 */
