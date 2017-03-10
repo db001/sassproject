@@ -1,5 +1,5 @@
 module.exports = function(grunt) {
-  grunt.initConfig({
+  grunt.initConfig({    
 
     watch: {
       sass: {
@@ -31,6 +31,21 @@ module.exports = function(grunt) {
       }
     },
 
+    postcss: {
+      options: {
+        map: false,
+        processors: [
+          // require('pixrem')(), //add fallbacks for rem units
+          require('autoprefixer')({browsers: 'last 2 versions'}), // add prefixes from specific browsers
+          // require('cssnano')() // minify result
+        ]
+      },
+      dist: {
+        src: 'app/css/*.css',
+        dest: 'app/css/prefixed.css'
+      }
+    },
+
     browserSync: {
       default_options: {
         bsFiles: {
@@ -51,11 +66,12 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.registerTask('default', ['eslint', 'sass', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['eslint', 'sass', 'postcss', 'browserSync', 'watch']);
 
 };
 

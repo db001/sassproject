@@ -28,6 +28,5 @@ h1 {
   color: blue; }
 
 #autoprefix-test {
+  display: -ms-flexbox;
   display: flex; }
-
-/*# sourceMappingURL=styles.css.map */
