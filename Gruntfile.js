@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['src/**/*.js'],
-        tasks: ['eslint'],
+        tasks: ['eslint', 'uglify'],
         options: {
           spawn: false
         }      
