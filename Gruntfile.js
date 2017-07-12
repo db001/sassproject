@@ -3,15 +3,20 @@ module.exports = function(grunt) {
 
     watch: {
       sass: {
-        files: "app/scss/*.scss",
+        files: "src/scss/*.scss",
         tasks: ['sass']
       },
+      css: {
+        files: ['src/css/*.css'],
+        tasks: ['postcss']
+      },
       scripts: {
-        files: ['app/**/*.js'],
+        files: ['src/**/*.js'],
         tasks: ['eslint'],
         options: {
           spawn: false
         },
+      
       },
     },
 
@@ -26,7 +31,18 @@ module.exports = function(grunt) {
       dist: {
         files: {
           // destination          // source file
-          "app/css/styles.css" : "app/scss/styles.scss"
+          "src/css/styles.css" : "src/scss/styles.scss"
+        }
+      }
+    },
+
+    uglify: {
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'app/scripts/ugly.js': 'src/scripts/sample.js'
         }
       }
     },
@@ -41,7 +57,7 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'app/css/*.css',
+        src: 'src/css/*.css',
         dest: 'app/css/prefixed.css'
       }
     },
@@ -50,7 +66,7 @@ module.exports = function(grunt) {
       default_options: {
         bsFiles: {
           src: [
-            "app/css/*.css",
+            "src/css/*.css",
             "*.html",
             "app/scripts/*.js"
           ]
@@ -68,10 +84,11 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.registerTask('default', ['eslint', 'sass', 'postcss', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['eslint', 'sass', 'uglify', 'postcss', 'browserSync', 'watch']);
 
 };
 

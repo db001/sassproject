@@ -1,0 +1,1 @@
+"use strict";function add(x){return x+25}var a=25;add(a);var x=document.getElementsByClassName("js-test")[0];x.style.color="green";
