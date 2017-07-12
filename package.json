@@ -17,5 +17,8 @@
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^19.0.0",
     "grunt-postcss": "^0.8.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^7.1.2"
   }
 }

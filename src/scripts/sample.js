@@ -12,4 +12,4 @@ add(a);
 
 var x = document.getElementsByClassName('js-test')[0];
 
-x.style.color = "green";
+x.style.color = "red";

@@ -5,19 +5,24 @@ module.exports = function(grunt) {
       sass: {
         files: "src/scss/*.scss",
         tasks: ['sass']
-      },
+        },
       css: {
         files: ['src/css/*.css'],
-        tasks: ['postcss']
+        tasks: ['postcss'],
       },
       scripts: {
         files: ['src/**/*.js'],
         tasks: ['eslint'],
         options: {
           spawn: false
-        },
-      
+        }      
       },
+      livereload: {
+        options: {
+          livereload: true
+        },
+        files: ['app/**/*']
+      }
     },
 
     eslint: {
@@ -66,7 +71,7 @@ module.exports = function(grunt) {
       default_options: {
         bsFiles: {
           src: [
-            "src/css/*.css",
+            "app/css/*.css",
             "*.html",
             "app/scripts/*.js"
           ]
